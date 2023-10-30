@@ -3,7 +3,7 @@ import './button.css'
 
 function countInitial () {
  
-  return 4
+  return 0
 
 }
 
