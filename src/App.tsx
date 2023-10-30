@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './button.css'
 
+function countInitial () {
+ 
+  return 4
+
+}
+
+/*hooks need to be inside a function*/
 function App() {
+  /*useState always returns an array with two values*/
+  /*the first thing in the array (below) is always the current state and the second thing is the function that allows you to update that current state*/
+  const [count, setCount] = useState(countInitial)
+
+function decrementCount () {
+  setCount(prevCount => prevCount -1) /*here I'm taking my previous count and subtracting 1 from it*/
+}
+
+function incrementCount () {
+  setCount(prevCount => prevCount +1)
+
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <button onClick={decrementCount} className="decrement-button">-</button>
+     <span className="number">{count}</span>
+     <button onClick={incrementCount} className="increment-button">+</button>
     </div>
   );
 }
